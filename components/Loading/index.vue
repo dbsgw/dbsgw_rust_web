@@ -8,7 +8,7 @@
     }">
     </div>
 <!--    <x-icon type="icon-loading"></x-icon>-->
-    <i class="el-icon-share"></i>
+    <i class="el-icon-loading"></i>
     <p>{{ text }}</p>
   </div>
 </template>
