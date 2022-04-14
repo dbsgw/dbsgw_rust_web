@@ -1,8 +1,8 @@
 <template>
   <div class="name">
     <div class="age">
+      首页
     </div>
-    <Tutorial/>
   </div>
 </template>
 

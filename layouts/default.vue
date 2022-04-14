@@ -8,7 +8,9 @@
         <el-main>
           <nuxt/>
         </el-main>
-        <el-aside width="200px" style="background-color: red;padding: 20px">Aside</el-aside>
+        <el-aside style="padding: 20px 0;width: 200px">
+          <AppAside/>
+        </el-aside>
       </el-container>
     </el-container>
     <el-footer>
