@@ -32,7 +32,7 @@ export default {
     './assets/css/index.scss'
   ],
   styleResources:{
-    scss:['./assets/css/rust.scss']
+    scss:['./assets/css/variable.scss']
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

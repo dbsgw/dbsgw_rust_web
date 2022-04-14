@@ -1,7 +1,6 @@
 <template>
   <div class="name">
     <div class="age">
-
     </div>
     <Tutorial/>
   </div>
@@ -28,11 +27,5 @@ export default {
 </script>
 
 <style lang="scss">
-.name {
-  .age {
-    background-color: $color-theme;
-    width: 100px;
-    height: 100px;
-  }
-}
+
 </style>

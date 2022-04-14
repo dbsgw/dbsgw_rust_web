@@ -1,2 +1,4 @@
-// 主题颜色
-$color-theme: #409eff;
+@import "global";
+@import "class";
+@import "theme-light";
+@import "normalize";

@@ -7,7 +7,8 @@
       'opacity': show ? 1 : 0
     }">
     </div>
-    <x-icon type="icon-loading"></x-icon>
+<!--    <x-icon type="icon-loading"></x-icon>-->
+    <i class="el-icon-share"></i>
     <p>{{ text }}</p>
   </div>
 </template>
@@ -94,6 +95,7 @@ export default {
 </script>
 
 <style lang="scss">
+$color-theme: #409eff;
 .nuxt-loading-container {
   position: fixed;
   top: 0;
