@@ -11,9 +11,10 @@
 export default {
   name: 'IndexPage',
   mounted() {
-    this.$axios.$get("/5555dada", (con) => {
-      console.log(con)
-    })
+    // this.$axios.$get("/5555dada", (con) => {
+    //   console.log(con)
+    // })
+    console.log(111)
   },
   // async asyncData({$axios}) {
   //   let data = await $axios.get('/4545xxxxx');
@@ -26,10 +27,10 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .name {
   .age {
-    background-color: red;
+    background-color: $color-theme;
     width: 100px;
     height: 100px;
   }
