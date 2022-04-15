@@ -1,8 +1,6 @@
 <template>
-  <div class="name">
-    <div class="age">
-      首页
-    </div>
+  <div class="rust_home">
+    5454
   </div>
 </template>
 
@@ -26,6 +24,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.rust_home {
+  background-color: var(--color-sub-background);
+  padding: 20px;
+}
 </style>
