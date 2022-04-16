@@ -4,7 +4,9 @@
       <div class="logo">
         <h1>rust</h1>
         <nuxt-link :to="{ name: 'index' }" class="block">
-          <img src="https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/2X/e/e260a60b8dca4dae6ce7db98c45bb5008e6fdc62.png" class="vertical-middle" height="40">
+          <img
+            src="https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/2X/e/e260a60b8dca4dae6ce7db98c45bb5008e6fdc62.png"
+            class="vertical-middle" height="40">
         </nuxt-link>
       </div>
       <div class="nav_wrapper">
@@ -32,6 +34,10 @@
           <el-button slot="append" icon="el-icon-search" class="search_button"></el-button>
         </el-input>
       </div>
+      <div class="user_wrapper">
+        <el-button size="small" type="text">登录</el-button>
+        <el-button size="small" type="warning" plain>注册</el-button>
+      </div>
     </div>
   </header>
 </template>
@@ -54,7 +60,7 @@ export default {
   top: 0;
   z-index: 99;
   width: 100%;
-  background-color:var(--color-sub-background);
+  background-color: var(--color-sub-background);
 
 
   .header_content {
@@ -84,6 +90,10 @@ export default {
           font-size: 16px;
         }
       }
+    }
+
+    .user_wrapper {
+      margin-left: $container-margin;
     }
   }
 }
