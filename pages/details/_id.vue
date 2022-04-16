@@ -5,12 +5,12 @@
       <div class="other-info">
         <p>
           <span class="author">
-            <i class="el-icon-share"></i>
+            <Rust_Icon type="rust_yaoqinghaoyou"></Rust_Icon>
             刘洋
           </span>
           <time class="time m-l-5px keep-all">
-            <i class="el-icon-share"></i>
-            刚刚
+            <rust_-icon type="rust_shijian"></rust_-icon>
+            2021-07-26 00:42:24
           </time>
         </p>
         <p>
@@ -18,17 +18,17 @@
           <span
             class="classify">
             解决问题
-<!--            v-for="(item, index) in detail.articleInfor.classify"-->
-<!--            :key="item.key"-->
-<!--            v-html="index === detail.articleInfor.classify.length - 1 ? item.name : `${item.name}、`"-->
-<!--          >-->
+            <!--            v-for="(item, index) in detail.articleInfor.classify"-->
+            <!--            :key="item.key"-->
+            <!--            v-html="index === detail.articleInfor.classify.length - 1 ? item.name : `${item.name}、`"-->
+            <!--          >-->
           </span>
           <span class="m-l-5px">
-             <i class="el-icon-share"></i>
-            火
+            <rust_-icon type="rust_redu"></rust_-icon>
+            12245
           </span>
           <span class="m-l-5px">
-             <i class="el-icon-share"></i>
+            <rust_-icon type="rust_liuyan"></rust_-icon>
             留言
           </span>
         </p>
@@ -54,7 +54,9 @@
 <script>
 export default {
   name: "Details",
-  fetch({ params, store }) {
+  components: {},
+
+  fetch({params, store}) {
     console.log(params)
     // store.dispatch('article/updateArticleViewCount', { id: params.id })
     // return store.dispatch('article/getArticleDetail', params.id)
@@ -65,8 +67,8 @@ export default {
     return {
       title: `张三`,
       meta: [
-        { hid: 'keywords', name: 'keywords', content: 'dad大大' },
-        { hid: 'description', name: 'description', content: 'dad大大' }
+        {hid: 'keywords', name: 'keywords', content: 'dad大大'},
+        {hid: 'description', name: 'description', content: 'dad大大'}
       ],
       style: [
         // { cssText: this.info.detailsCss, type: 'text/css' }
@@ -76,23 +78,23 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped >
+<style lang="scss" scoped>
 .container {
   position: relative;
 
-.toggle-reading-mode {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 2px;
-  background: var(--color-sub-background);
-  transition: .3s;
-  cursor: pointer;
+  .toggle-reading-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px;
+    background: var(--color-sub-background);
+    transition: .3s;
+    cursor: pointer;
 
-&.is-active {
-   transform: rotateZ(180deg);
- }
-}
+    &.is-active {
+      transform: rotateZ(180deg);
+    }
+  }
 }
 
 .section {
@@ -121,8 +123,13 @@ export default {
     border-bottom: 1px solid var(--color-border);
     text-align: center;
     color: var(--color-secondary);
-    .m-l-5px{
+
+    .m-l-5px {
       margin-left: 5px;
+    }
+
+    .m-l-10px {
+      margin-left: 10px;
     }
 
     .iconfont {
