@@ -33,22 +33,6 @@
       </ul>
     </div>
 
-
-    <!-- 公告栏 -->
-    <div class="sidebar-list notice">
-      <div class="header">
-        <p>
-          <i class="el-icon-share"></i>
-          公告12123123
-        </p>
-      </div>
-      <div class="content">
-        Powered by dbsgw(Golang + MySQL)©2013-2022 Ru.com Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022 Rust.com
-        Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022 Rustst.com Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022
-        Rust.com Rust语言中文©2013-2022 Rust.com Rust语言中文
-      </div>
-    </div>
-
   </aside>
 </template>
 
