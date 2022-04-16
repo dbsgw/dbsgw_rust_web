@@ -54,8 +54,6 @@ export default {
     padding: 10px;
     border-radius: $border-radius;
     background: var(--color-sub-background);
-    margin-bottom: 20px;
-
     &:first-of-type {
       margin-top: 0;
     }
