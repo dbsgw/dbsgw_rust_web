@@ -16,7 +16,7 @@
     </div>
 
     <!-- 站点统计 -->
-    <div  class="sidebar-list count">
+    <div class="sidebar-list count">
       <div class="header">
         <p>
           <i class="el-icon-edit-outline"></i>
@@ -24,12 +24,15 @@
         </p>
       </div>
       <ul class="content">
-        <li class="list">标签：1个</li>
+
+        <li class="list">会员：72316位</li>
         <li class="list">文章：2篇</li>
-        <li class="list">页面：3个</li>
         <li class="list">评论：5条</li>
-        <li class="list">分类：6个</li>
-        <li class="list">最后更新：8</li>
+        <!--        <li class="list">标签：1个</li>-->
+        <!--        <li class="list">页面：3个</li>-->
+        <!--        <li class="list">评论：5条</li>-->
+        <!--        <li class="list">分类：6个</li>-->
+        <li class="list">最后更新：刚刚</li>
       </ul>
     </div>
 
@@ -45,12 +48,14 @@ export default {
 <style lang="scss" scoped>
 .aside {
   font-size: 14px;
+
   .sidebar-list {
     margin-top: $container-margin;
     padding: 10px;
     border-radius: $border-radius;
     background: var(--color-sub-background);
     margin-bottom: 20px;
+
     &:first-of-type {
       margin-top: 0;
     }
@@ -94,11 +99,11 @@ export default {
         margin-top: 10px;
 
         &:nth-of-type(odd) {
-          width: 40%;
+          width: 50%;
         }
 
         &:nth-of-type(even) {
-          width: 58%;
+          width: 48%;
         }
       }
     }

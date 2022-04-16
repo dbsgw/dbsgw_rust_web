@@ -59,6 +59,20 @@ export default {
     // store.dispatch('article/updateArticleViewCount', { id: params.id })
     // return store.dispatch('article/getArticleDetail', params.id)
   },
+  head() {
+    // const keywords = []
+    // this.detail.articleInfor.tags && this.detail.articleInfor.tags.forEach(item => keywords.push(item.name))
+    return {
+      title: `张三`,
+      meta: [
+        { hid: 'keywords', name: 'keywords', content: 'dad大大' },
+        { hid: 'description', name: 'description', content: 'dad大大' }
+      ],
+      style: [
+        // { cssText: this.info.detailsCss, type: 'text/css' }
+      ]
+    }
+  },
 }
 </script>
 
