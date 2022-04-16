@@ -1,14 +1,14 @@
 <template>
-  <div class="rust_index">
-    <el-card class="box-card">
-      <div class="table">
-        <el-table
-          v-loading="loading"
-          :show-header="false"
-          :data="tableData"
-          style="width: 100%">
-          <el-table-column>
-            <template slot-scope="scope">
+  <section class="rust_index">
+    <div class="table">
+      <el-table
+        v-loading="loading"
+        :show-header="false"
+        :data="tableData"
+        style="width: 100%">
+        <el-table-column>
+          <template slot-scope="scope">
+            <nuxt-link :to="{ path: 'details/2' }" class="block">
               <el-row>
                 <el-col :span="12">
                   帮我扒一下网站的JS....jsonToYaml()和yamlToJson()
@@ -23,23 +23,22 @@
                   {{ scope.row.date }}
                 </el-col>
               </el-row>
-            </template>
-          </el-table-column>
-        </el-table>
-      </div>
-      <div class="block">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-sizes="[100, 200, 300, 400]"
-          :page-size="10"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="400">
-        </el-pagination>
-      </div>
-    </el-card>
-  </div>
+            </nuxt-link>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+    <div class="block">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[100, 200, 300, 400]"
+        layout="total, prev, pager, next"
+        :total="400">
+      </el-pagination>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -95,15 +94,16 @@ export default {
 
 <style lang="scss" scoped>
 .rust_index {
-  .box-card {
-    .table {
-      height: 100vh;
+  background: var(--color-sub-background);
+  padding: $container-padding;
 
-    }
+  .table {
+    min-height: 50vh;
 
-    .block {
-      margin-top: 15px;
-    }
+  }
+
+  .block {
+    margin-top: 15px;
   }
 }
 </style>

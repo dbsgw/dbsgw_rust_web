@@ -5,7 +5,7 @@
       <div class="header">
         <p>
           <i class="el-icon-share"></i>
-          公告12123123
+          公告
         </p>
       </div>
       <div class="content">

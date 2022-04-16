@@ -4,7 +4,7 @@
       <div class="logo">
         <h1>rust</h1>
         <nuxt-link :to="{ name: 'index' }" class="block">
-          <img src="https://upyun.xuanmo.xin/images/x-logo.png" class="vertical-middle" width="120" height="40">
+          <img src="https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/2X/e/e260a60b8dca4dae6ce7db98c45bb5008e6fdc62.png" class="vertical-middle" height="40">
         </nuxt-link>
       </div>
       <div class="nav_wrapper">
