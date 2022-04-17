@@ -5,7 +5,7 @@
     </el-header>
     <el-container class="wrap">
       <el-container>
-        <el-main>
+        <el-main style="padding-left: 0">
           <nuxt/>
         </el-main>
         <el-aside style="padding: 20px 0;width: 200px">

@@ -13,9 +13,9 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      // { hid: 'prism', rel: 'stylesheet', href: '/css/prism.css' }
+      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3334104_a9q90b2urxe.css'},// 阿里云字体图标
     ],
-    script:[
+    script: [
       // 百度主推文章收录用
       // { src: 'https://zz.bdstatic.com/linksubmit/push.js' },
       // 加入百度统计js，使用时自行添加为自己的
@@ -31,8 +31,8 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     './assets/css/index.scss'
   ],
-  styleResources:{
-    scss:['./assets/css/variable.scss']
+  styleResources: {
+    scss: ['./assets/css/variable.scss']
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -41,7 +41,8 @@ export default {
     {
       src: '~/plugins/axios',
       mode: 'client' // 设置 这个插件就是在客户端渲染时，才会触发
-    }
+    },
+    { src: '~/plugins/icon', ssr: true }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
