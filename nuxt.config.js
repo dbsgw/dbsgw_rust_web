@@ -38,11 +38,12 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
+    {src: '~/plugins/common', mode: 'client', ssr: false},
     {
       src: '~/plugins/axios',
       mode: 'client' // 设置 这个插件就是在客户端渲染时，才会触发
     },
-    { src: '~/plugins/icon', ssr: true }
+    {src: '~/plugins/icon'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
