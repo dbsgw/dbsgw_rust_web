@@ -11,21 +11,21 @@
       </div>
       <div class="nav_wrapper">
         <ul class="nav_wrapper_ul">
-<!--          <li class="nav_wrapper_ul_li">-->
-<!--            <nuxt-link to="/">-->
-<!--              首页-->
-<!--            </nuxt-link>-->
-<!--          </li>-->
-<!--          <li class="nav_wrapper_ul_li">-->
-<!--            <nuxt-link to="/user">-->
-<!--              用户-->
-<!--            </nuxt-link>-->
-<!--          </li>-->
-<!--          <li class="nav_wrapper_ul_li">-->
-<!--            <nuxt-link to="/">-->
-<!--              首页-->
-<!--            </nuxt-link>-->
-<!--          </li>-->
+          <!--          <li class="nav_wrapper_ul_li">-->
+          <!--            <nuxt-link to="/">-->
+          <!--              首页-->
+          <!--            </nuxt-link>-->
+          <!--          </li>-->
+          <!--          <li class="nav_wrapper_ul_li">-->
+          <!--            <nuxt-link to="/user">-->
+          <!--              用户-->
+          <!--            </nuxt-link>-->
+          <!--          </li>-->
+          <!--          <li class="nav_wrapper_ul_li">-->
+          <!--            <nuxt-link to="/">-->
+          <!--              首页-->
+          <!--            </nuxt-link>-->
+          <!--          </li>-->
 
         </ul>
       </div>
@@ -39,16 +39,10 @@
         <el-button size="small" type="warning" plain @click="handelRegister">注册</el-button>
       </div>
     </div>
-    <loginModel ref="loginModel"/>
-    <div>
-      <registerModel ref="registerModel"/>
-    </div>
   </header>
 </template>
 
 <script>
-import loginModel from "@/components/Login/loginModel";
-import registerModel from "@/components/Login/registerModel";
 
 export default {
   name: "AppHeader",
@@ -57,17 +51,12 @@ export default {
       searchText: '',
     }
   },
-  components: {
-    loginModel,
-    registerModel
-  },
   methods: {
     handelLogin() {
-      this.$refs.loginModel.show()
+      console.log("登录")
     },
     handelRegister() {
-      console.log(this.$refs.registerModel.data, "===this.$refs.registerModel")
-      this.$refs.registerModel.show()
+      console.log("注册")
     }
   }
 }
