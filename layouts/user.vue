@@ -16,12 +16,12 @@
 
 <script>
 export default {
-  name: "default",
+  name: "user",
   created() {
     this.$nextTick(() => {
       if (process.browser) {
         this.$refs.main.height = window.innerHeight
-        console.log(111, this.$refs.footer.height, this.$refs.header.height, this.$refs.main,window.innerHeight)
+        console.log(111, this.$refs.footer.height, this.$refs.header.height, this.$refs.main, window.innerHeight)
       }
     })
   }

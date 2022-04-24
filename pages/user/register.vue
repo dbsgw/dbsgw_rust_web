@@ -1,6 +1,9 @@
 <template>
     <el-card class="box-card">
       <el-form ref="form" :rules="rules" :model="form" label-width="80px">
+        <el-form-item label="昵称" prop="username">
+          <el-input v-model="form.username" placeholder="请输入昵称"></el-input>
+        </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="form.email" placeholder="邮箱"></el-input>
         </el-form-item>
@@ -21,10 +24,14 @@ export default {
   data() {
     return {
       form: {
-        email: '',
-        password: ''
+        username: '',
+        password: '',
       },
       rules: {
+        username: [
+          {required: true, message: '请输入活动名称', trigger: 'blur'},
+          {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+        ],
         email: [
           {required: true, message: '请输入活动名称', trigger: 'blur'},
           {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
