@@ -8,6 +8,11 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "config": {
+    "nuxt": {
+      "port": "2000"
+    }
+  },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@vue/eslint-config-standard": "^6.1.0",

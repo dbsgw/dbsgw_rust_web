@@ -6,7 +6,7 @@ export default function ({ store, redirect, app: { $axios } }) {
   // Request拦截器：设置Token
   $axios.onRequest((config) => {
     // 使用Vuex存储Token，并做持久化处理
-    config.headers['Authorization'] = "Bearer" + localStorage.getItem("token")
+    config.headers['Authorization'] = localStorage.getItem("token")
   })
   // Error拦截器：出现错误的时候被调用，根据状态码做对应判断并显示全局Message
   $axios.onError((error) => {

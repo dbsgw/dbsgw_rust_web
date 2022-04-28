@@ -36,7 +36,6 @@
       </div>
       <div class="user_wrapper">
         <el-button size="small" type="text" @click="handelLogin">登录</el-button>
-        <el-button size="small" @click="handelRegister">注册</el-button>
       </div>
     </div>
   </header>
@@ -57,11 +56,6 @@ export default {
         "name": "user-login"
       })
     },
-    handelRegister() {
-      this.$router.push({
-        "name": "user-register"
-      })
-    }
   }
 }
 </script>

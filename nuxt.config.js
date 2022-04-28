@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3334104_a9q90b2urxe.css'},// 阿里云字体图标
+      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3334104_vauox1nsp58.css'},// 阿里云字体图标
     ],
     script: [
       // 百度主推文章收录用
@@ -24,7 +24,7 @@ export default {
   },
 
   // 自定义 loading 加载
-  loading: './components/Loading',
+  // loading: './components/Loading',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -75,7 +75,7 @@ export default {
   proxy: {
     '/api': {
       // target: 'https://www.xuanmo.xin',
-      target: 'http://localhost:5100',
+      target: 'http://127.0.0.1:3000',
       pathRewrite: {
         '^/api': '/'
       }
