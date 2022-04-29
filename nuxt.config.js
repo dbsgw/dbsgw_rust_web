@@ -44,6 +44,7 @@ export default {
       mode: 'client' // 设置 这个插件就是在客户端渲染时，才会触发
     },
     {src: '~/plugins/icon'},
+    { src: '~/plugins/store.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

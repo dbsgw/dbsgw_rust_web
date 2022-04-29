@@ -35,6 +35,7 @@
         </el-input>
       </div>
       <div class="user_wrapper">
+        {{info.nick_name}}
         <el-button size="small" type="text" @click="handelLogin">登录</el-button>
       </div>
     </div>
@@ -42,6 +43,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 
 export default {
   name: "AppHeader",
@@ -50,12 +52,20 @@ export default {
       searchText: '',
     }
   },
+  computed: {
+    ...mapState({
+      info: state => state.info
+    }),
+  },
   methods: {
     handelLogin() {
       this.$router.push({
         "name": "user-login"
       })
     },
+  },
+  errorCaptured(err, vm, info) {
+    console.log(this.info, "info")
   }
 }
 </script>

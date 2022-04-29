@@ -23,13 +23,15 @@ export default {
   },
   async beforeCreate() {
     console.log(this.$route.query.code)
-    const result = await this.$axios.$get(`/v1/user/login/oauth/githup?code=${this.$route.query.code}`)
+    // const result = await this.$axios.$get(`/v1/user/login/oauth/githup?code=${this.$route.query.code}`)
+    let result = await this.$store.dispatch('RustServerInitGitHup', this.$route.query.code)
+    console.log(result)
     if (result.status !== 200) {
       Message.error(result.msg)
     } else {
       localStorage.setItem("token", result.data.token)
       this.$router.push({
-        "path": "/"
+        "name": "index"
       })
     }
   },
