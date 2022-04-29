@@ -30,7 +30,7 @@ export default {
     } else {
       localStorage.setItem("token", result.data.token)
       this.$router.push({
-        "name": "index"
+        "name": "admin-home"
       })
     }
   },
