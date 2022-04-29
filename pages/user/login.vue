@@ -95,13 +95,13 @@ export default {
       }
     },
     async submitLogin(obj) {
-      const result = await this.$axios.$get(`/v1/user/login?email=${obj.email}&code=${obj.code}`)
+      let result = await this.$store.dispatch('RustServerInitEmail', obj)
       if (result.status !== 200) {
         Message.error(result.msg)
       } else {
         localStorage.setItem("token", result.data.token)
         this.$router.push({
-          "path": "/"
+          "name": "index"
         })
       }
     }
