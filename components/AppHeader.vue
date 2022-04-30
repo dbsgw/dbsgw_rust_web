@@ -35,8 +35,19 @@
         </el-input>
       </div>
       <div class="user_wrapper">
-        {{info.nick_name}}
-        <el-button size="small" type="text" @click="handelLogin">登录</el-button>
+
+        <el-button v-show="!isLogin" size="small" type="text" @click="handelLogin">登录</el-button>
+
+        <el-dropdown v-show="isLogin" :hide-on-click="false">
+          <span class="el-dropdown-link">
+          {{ info.nick_name }}<rust_-icon type="rust_xiala"></rust_-icon>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item><a @click="handelUserInfo(1)">个人中心</a></el-dropdown-item>
+            <el-dropdown-item><a @click="handelUserInfo(2)">帖子管理</a></el-dropdown-item>
+            <el-dropdown-item><a @click="handelLgout">退出登录</a></el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </div>
   </header>
@@ -56,8 +67,32 @@ export default {
     ...mapState({
       info: state => state.info
     }),
+    // 是否登录
+    isLogin() {
+      console.log(this.$store.state.info)
+      if (this.$store.state.info.uid) {
+        return true
+      } else {
+        return false
+      }
+    },
   },
   methods: {
+    handelUserInfo(activeName) {
+      this.$router.push({
+        "name": "admin-home",
+      })
+    },
+    // 退出登录  清楚 token 和 info  跳转到首页
+    handelLgout() {
+      // localStorage.removeItem("token")
+      // localStorage.clear()
+      this.$store.commit("CLEAR")
+      this.$router.push({
+        "name": "index"
+      })
+
+    },
     handelLogin() {
       this.$router.push({
         "name": "user-login"

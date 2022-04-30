@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3334104_vauox1nsp58.css'},// 阿里云字体图标
+      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3334104_ca9w7wnwgc.css'},// 阿里云字体图标
     ],
     script: [
       // 百度主推文章收录用

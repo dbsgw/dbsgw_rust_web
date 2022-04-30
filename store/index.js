@@ -8,6 +8,10 @@ export const mutations = {
   UPDATE_GLOBAL_INFO(state, info) {
     state.info = info
   },
+  // 清空 state
+  CLEAR(state) {
+    state.info = {}
+  }
 }
 
 export const actions = {
