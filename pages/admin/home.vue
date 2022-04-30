@@ -2,12 +2,23 @@
   <el-card class="box-card">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="用户管理" name="1">
-        <el-form ref="form" :model="form" label-width="80px">
+        <el-form ref="form" :model="form" label-width="130px">
+          <el-form-item label="ID">
+           <h3>1uJNTVyccwau8_kUSsJs2</h3>
+          </el-form-item>
           <el-form-item label="昵称">
             <el-input v-model="form.nick_name"></el-input>
           </el-form-item>
           <el-form-item label="手机号">
             <el-input v-model="form.mobile"></el-input>
+          </el-form-item>
+          <el-form-item label="第三方帐号绑定">
+            <a @click="binGitee">
+              <rust_-icon type="rust_gitee" style="color: #cb2727;font-size: 30px"></rust_-icon>
+            </a>
+            <a @click="binGitHup">
+              <rust_-icon type="rust_github" style="font-size: 30px;margin-left: 10px"></rust_-icon>
+            </a>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">更新资料</el-button>
@@ -21,12 +32,12 @@
           <el-table-column
             prop="date"
             label="标题"
-           >
+          >
           </el-table-column>
           <el-table-column
             prop="作者"
             label="姓名"
-           >
+          >
           </el-table-column>
           <el-table-column
             prop="address"
@@ -84,6 +95,12 @@ export default {
     };
   },
   methods: {
+    binGitee() {
+      console.log("绑定gitee")
+    },
+    binGitHup() {
+      console.log("绑定gitHup")
+    },
     handleClick(tab, event) {
       console.log(tab, event);
     },
