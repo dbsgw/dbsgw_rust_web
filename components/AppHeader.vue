@@ -40,11 +40,11 @@
 
         <el-dropdown v-show="isLogin" :hide-on-click="false">
           <span class="el-dropdown-link">
-          {{ info.nick_name }}<rust_-icon type="rust_xiala"></rust_-icon>
+          {{ info.nick_name || ""}}<rust_-icon type="rust_xiala"></rust_-icon>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><a @click="handelUserInfo(1)">个人中心</a></el-dropdown-item>
-            <el-dropdown-item><a @click="handelUserInfo(2)">帖子管理</a></el-dropdown-item>
+            <el-dropdown-item><a @click="handelUserInfo(2)">发帖子</a></el-dropdown-item>
             <el-dropdown-item><a @click="handelLgout">退出登录</a></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -69,7 +69,6 @@ export default {
     }),
     // 是否登录
     isLogin() {
-      console.log(this.$store.state.info)
       if (this.$store.state.info.uid) {
         return true
       } else {

@@ -58,4 +58,19 @@ export const actions = {
       return Promise.reject(error)
     }
   },
+  // 获取用户信息
+  async RustUserInfo({commit}, uid) {
+    try {
+      const result = await this.$axios.$get(`/v1/user/info/${uid}`)
+      if (result.status == 200) {
+        const userinfo = result.data
+        console.log(userinfo, "code")
+        commit('UPDATE_GLOBAL_INFO', userinfo)
+      }
+
+      return Promise.resolve(result)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  },
 }

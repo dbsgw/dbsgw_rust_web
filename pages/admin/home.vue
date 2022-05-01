@@ -2,11 +2,11 @@
   <el-card class="box-card">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="用户管理" name="1">
-        <el-form ref="form" :model="form" label-width="130px">
+        <el-form ref="form" :model="form" :rules="rules" label-width="130px">
           <el-form-item label="ID">
-           <h3>1uJNTVyccwau8_kUSsJs2</h3>
+            <h3>1uJNTVyccwau8_kUSsJs2</h3>
           </el-form-item>
-          <el-form-item label="昵称">
+          <el-form-item label="昵称" prop="nick_name">
             <el-input v-model="form.nick_name"></el-input>
           </el-form-item>
           <el-form-item label="手机号">
@@ -66,8 +66,14 @@
 </template>
 
 <script>
+import {Message} from "element-ui";
+
 export default {
   name: "home",
+  created() {
+    this.form.nick_name = this.$store.state.info.nick_name
+    this.form.mobile = this.$store.state.info.mobile
+  },
   data() {
     return {
       activeName: '1',
@@ -91,7 +97,13 @@ export default {
         date: '2016-05-03',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      }],
+      rules: {
+        nick_name: [
+          {required: true, message: '请输入个人昵称', trigger: 'blur'},
+          {min: 5, max: 20, message: '长度在 5 到 20 个字符', trigger: 'blur'}
+        ],
+      }
     };
   },
   methods: {
@@ -105,9 +117,33 @@ export default {
       console.log(tab, event);
     },
     onSubmit() {
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+
+          var data = {
+            NickName: this.form.nick_name,
+            Mobile: this.form.mobile,
+          }
+          const result = await this.$axios.put(`/v1/user/info/${this.$store.state.info.uid}`, data)
+          if (result.status !== 200) {
+            this.$message.error(result.msg)
+          } else {
+            this.$message.success("修改成功")
+            this.resetUserInfo()
+          }
+          console.log(result)
+
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
       console.log('submit!');
+    },
+    resetUserInfo() {
+      this.$store.dispatch("RustUserInfo", this.$store.state.info.uid)
     }
-  }
+  },
 }
 </script>
 
