@@ -24,7 +24,7 @@ export default {
   },
 
   // 自定义 loading 加载
-  // loading: './components/Loading',
+  loading: './components/Loading',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -44,7 +44,8 @@ export default {
       mode: 'client' // 设置 这个插件就是在客户端渲染时，才会触发
     },
     {src: '~/plugins/icon'},
-    { src: '~/plugins/store.js', ssr: false }
+    { src: '~/plugins/store.js', ssr: false },
+    { src: '@/plugins/vue-mavon-editor', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
