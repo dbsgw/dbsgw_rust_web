@@ -47,7 +47,7 @@ export default {
         subfield: true, // 单双栏模式
         preview: true, // 预览
       },
-      handbook: "#### how to use mavonEditor in nuxt.js"
+      handbook: ""
     };
   },
   methods: {

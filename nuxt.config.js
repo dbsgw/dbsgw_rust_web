@@ -29,7 +29,8 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    './assets/css/index.scss'
+    './assets/css/index.scss',
+    'mavon-editor/dist/css/index.css'
   ],
   styleResources: {
     scss: ['./assets/css/variable.scss']

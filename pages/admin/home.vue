@@ -30,21 +30,16 @@
           :data="tableData"
           style="width: 100%">
           <el-table-column
-            prop="date"
+            prop="article_id"
+            label="文章id">
+          </el-table-column>
+          <el-table-column
+            prop="article_title"
             label="标题"
           >
           </el-table-column>
           <el-table-column
-            prop="作者"
-            label="姓名"
-          >
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="分类">
-          </el-table-column>
-          <el-table-column
-            prop="address"
+            prop="article_time"
             label="时间">
           </el-table-column>
           <el-table-column
@@ -58,6 +53,17 @@
           <el-table-column
             prop="address"
             label="操作">
+            <template slot-scope="scope">
+              <el-button
+                size="mini"
+                @click="handleEdit(scope.$index, scope.row)">编辑
+              </el-button>
+              <el-button
+                size="mini"
+                type="danger"
+                @click="handleDelete(scope.$index, scope.row)">删除
+              </el-button>
+            </template>
           </el-table-column>
         </el-table>
       </el-tab-pane>
@@ -73,6 +79,7 @@ export default {
   created() {
     this.form.nick_name = this.$store.state.info.nick_name
     this.form.mobile = this.$store.state.info.mobile
+    this.getArticleAll()
   },
   data() {
     return {
@@ -81,32 +88,45 @@ export default {
         nick_name: '',
         mobile: '',
       },
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }],
+      tableData: [],
       rules: {
         nick_name: [
           {required: true, message: '请输入个人昵称', trigger: 'blur'},
-          {min: 5, max: 20, message: '长度在 5 到 20 个字符', trigger: 'blur'}
+          {min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur'}
         ],
       }
     };
   },
   methods: {
+    handleEdit(index, row) {
+      console.log(index, row)
+      this.$router.push({
+        "name": "articles-new",
+        query: {
+          id: row.article_id
+        }
+      })
+    },
+    async handleDelete(index, row) {
+      const result = await this.$axios.$delete(`/v1/admin/article/${row.article_id}`)
+      if (result.status !== 200) {
+        this.$message.error(result.msg)
+      } else {
+        this.$message.success(result.msg)
+        await this.getArticleAll()
+      }
+      console.log(result)
+      console.log(index, row)
+    },
+    async getArticleAll() {
+      const result = await this.$axios.$get("/v1/admin/article")
+      if (result.status !== 200) {
+        this.$message.error(result.msg)
+      } else {
+        this.tableData = result.data
+      }
+      console.log(result)
+    },
     binGitee() {
       console.log("绑定gitee")
     },

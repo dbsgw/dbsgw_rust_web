@@ -44,7 +44,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><a @click="handelUserInfo(1)">个人中心</a></el-dropdown-item>
-            <el-dropdown-item><a @click="handelUserInfo(2)">发帖子</a></el-dropdown-item>
+            <el-dropdown-item><a @click="handelarticles">发帖子</a></el-dropdown-item>
             <el-dropdown-item><a @click="handelLgout">退出登录</a></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -77,6 +77,11 @@ export default {
     },
   },
   methods: {
+    handelarticles(){
+      this.$router.push({
+        "name": "articles-new",
+      })
+    },
     handelUserInfo(activeName) {
       this.$router.push({
         "name": "admin-home",

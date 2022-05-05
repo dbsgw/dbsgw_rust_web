@@ -15,10 +15,10 @@
         style="width: 100%">
         <el-table-column>
           <template slot-scope="scope">
-            <nuxt-link :to="{ path: 'details/2' }" class="block">
+            <nuxt-link :to="{ path: `details/${scope.row.article_id}` }" class="block">
               <el-row>
                 <el-col :span="12">
-                  帮我扒一下网站的JS....jsonToYaml()和yamlToJson()
+                  {{scope.row.article_title}}
                 </el-col>
                 <el-col :span="7">
                   454
@@ -56,66 +56,7 @@ export default {
       activeIndex: "1",
       loading: false,
       currentPage: 1,
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }
-      ]
+      tableData: []
     }
   },
   methods: {
@@ -129,14 +70,13 @@ export default {
       console.log(`当前页: ${val}`);
     }
   },
-  mounted() {
-    // this.$axios.$get("/5555dada", (con) => {
-    //   console.log(con)
-    // })
-    console.log(111)
+  async mounted() {
+    const result = await this.$axios.$get("/v1/admin/article")
+    console.log(result)
+    this.tableData = result.data
   },
   // async asyncData({$axios}) {
-  //   let data = await $axios.get('/4545xxxxx');
+  //   let data = await this.$axios.$get("/v1/admin/article")
   //   if (data.code == 200) {
   //     return data
   //   } else {

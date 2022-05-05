@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <article class="section article">
-      <h2 class="title">golang不适合写哪些复杂的业务逻辑？能否举例说明下</h2>
+      <h2 class="title">{{articleObject.article_title}}</h2>
       <div class="other-info">
         <p>
           <span class="author">
@@ -33,18 +33,7 @@
           </span>
         </p>
       </div>
-      <div class="content-details" ref="articleContent">
-        无非就是多写几行代码而已。 只是每次多写的几行代码看起来不那么优雅而已，慢慢这种代码多了就觉得枯燥。
-
-        比如java中计算一个列表中某个字段的值。int sum = =users.stream().mapToInt(User::getPoint).sum()
-
-        在go中只能 外部定义一个变量，然后用for循环去做了，。业务是多变的，经常会有这样转来转去的数据处理的需求出现。当然go中也有类似第三方库，只是没有被企业大量使用不那么成熟。
-
-        当然这只是举一个例子。
-
-        没有go不能做的，在业务开发上来说，不过也分行业的，有些视频，IM，等行业更适合go。 金融，支付，电商，推荐等业务复杂多变的java更合适。
-
-        但是你为啥要去做业务呢？业务党基本很容易被毕业，多点有技术含量，又不像业务那样多变的，比如云原生基础设施，中间件不好么
+      <div class="content-details" ref="articleContent" v-html="articleObject.article_content">
       </div>
     </article>
     <!-- 文章内容结束 -->
@@ -55,11 +44,25 @@
 export default {
   name: "Details",
   components: {},
-
-  fetch({params, store}) {
-    console.log(params)
-    // store.dispatch('article/updateArticleViewCount', { id: params.id })
-    // return store.dispatch('article/getArticleDetail', params.id)
+  data() {
+    return {
+      articleObject: {},
+      paramsId: null
+    }
+  },
+  // async fetch({params, store,axios}) {
+  //   this.paramsId = params.id
+  //   // console.log(params, params.id)
+  //   const result = await axios.get(`/v1/admin/article/${params.id}`)
+  //   // console.log(result)
+  //   // store.dispatch('article/updateArticleViewCount', { id: params.id })
+  //   // return store.dispatch('article/getArticleDetail', params.id)
+  // },
+  async created() {
+    console.log(this.$route.params.id)
+    const result = await this.$axios.$get(`/v1/admin/article/${this.$route.params.id}`)
+    this.articleObject = result.data
+    console.log(result)
   },
   head() {
     // const keywords = []
