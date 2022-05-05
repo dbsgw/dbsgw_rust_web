@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <article class="section article">
-      <h2 class="title">{{articleObject.article_title}}</h2>
+      <h2 class="title">{{ articleObject.article_title }}</h2>
       <div class="other-info">
         <p>
           <span class="author">
