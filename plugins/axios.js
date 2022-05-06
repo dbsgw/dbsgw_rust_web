@@ -2,7 +2,7 @@ import {Message, Loading} from 'element-ui'
 
 export default function ({store, redirect, app: {$axios}}) {
   // 后端接口地址
-  $axios.defaults.baseURL = process.env.NODE_ENV == "development" ? "/api" : "https://aabbcc.com/api"
+  $axios.defaults.baseURL = process.env.NODE_ENV == "development" ? "/api" : "/api"
 
   // Request拦截器：设置Token
   $axios.onRequest((config) => {

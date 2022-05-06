@@ -9,7 +9,8 @@
       </el-form-item>
       <el-form-item label="验证码" prop="code">
         <el-input v-model="form.code" placeholder="请输入验证码">
-          <el-button slot="append" @click="handelEmail">获取验证码</el-button>
+          <el-button slot="append" @click="handelEmail" v-if="isSendCode">获取验证码</el-button>
+          <el-button slot="append" type="primary" :loading="true" v-else>{{ sendTime }}</el-button>
         </el-input>
       </el-form-item>
       <el-form-item style="text-align: center">
@@ -43,16 +44,28 @@ export default {
       rules: {
         email: [
           {required: true, message: '请输入邮箱', trigger: 'blur'},
+          {type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change']},
           {min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur'}
         ],
         code: [
           {required: true, message: '请输入验证码', trigger: 'blur'},
-          {min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur'}
+          {min: 6, max: 6, message: '验证码长度为 6个 字符', trigger: 'blur'}
         ],
-      }
+      },
+      sendTime: 60,
+      isSendCode: true
     }
   },
   methods: {
+    getTime() {
+      this.timer = setInterval(() => {
+        this.sendTime--
+        if (this.sendTime === 0) {
+          this.isSendCode = true
+          clearInterval(this.timer)
+        }
+      }, 1000)
+    },
     handelGitee() {
       location.href = RustGitee()
     },
@@ -92,6 +105,9 @@ export default {
       const result = await this.$axios.$get(`/v1/user/login/code?email=${email}`)
       if (result.status !== 200) {
         Message.error(result.msg)
+      } else {
+        this.isSendCode = false
+        this.getTime()
       }
     },
     async submitLogin(obj) {

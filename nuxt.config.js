@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'rust',
+    title: 'rust中文网',
     htmlAttrs: {
       lang: 'en'
     },
@@ -43,11 +43,12 @@ export default {
     {src: '~/plugins/common', mode: 'client', ssr: false},
     {
       src: '~/plugins/axios',
-      mode: 'client' // 设置 这个插件就是在客户端渲染时，才会触发
+      mode: 'client', // 设置 这个插件就是在客户端渲染时，才会触发
+      ssr: false
     },
     {src: '~/plugins/icon'},
-    { src: '~/plugins/store.js', ssr: false },
-    { src: '@/plugins/vue-mavon-editor', ssr: false },
+    {src: '~/plugins/store.js', ssr: false},
+    {src: '@/plugins/vue-mavon-editor', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
