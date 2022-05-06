@@ -6,11 +6,11 @@
         <p>
           <span class="author">
             <Rust_Icon type="rust_yaoqinghaoyou"></Rust_Icon>
-            刘洋
+           {{ articleObject.user_name || "无" }}
           </span>
           <time class="time m-l-5px keep-all">
             <rust_-icon type="rust_shijian"></rust_-icon>
-            2021-07-26 00:42:24
+            {{ moment(articleObject.article_time * 1000).format(' YYYY-MM-DD hh:mm:ss') }}
           </time>
         </p>
         <p>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: "Details",
   components: {},
@@ -49,6 +51,9 @@ export default {
       articleObject: {},
       paramsId: null
     }
+  },
+  methods: {
+    moment
   },
   // async fetch({params, store,axios}) {
   //   this.paramsId = params.id

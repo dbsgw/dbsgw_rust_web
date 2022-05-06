@@ -123,7 +123,7 @@ export default {
       if (result.status !== 200) {
         this.$message.error(result.msg)
       } else {
-        this.tableData = result.data
+        this.tableData = result.data.result
       }
       console.log(result)
     },

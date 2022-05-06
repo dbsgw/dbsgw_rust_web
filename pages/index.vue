@@ -18,16 +18,16 @@
             <nuxt-link :to="{ path: `details/${scope.row.article_id}` }" class="block">
               <el-row>
                 <el-col :span="12">
-                  {{scope.row.article_title}}
+                  {{ scope.row.article_title }}
                 </el-col>
                 <el-col :span="7">
                   454
                 </el-col>
                 <el-col :span="2">
-                  枫槿
+                  {{ scope.row.user_name || "无" }}
                 </el-col>
                 <el-col :span="3">
-                  {{ scope.row.date }}
+                  {{ moment(scope.row.article_time * 1000).format('MM月DD日 - hh:mm') }}
                 </el-col>
               </el-row>
             </nuxt-link>
@@ -40,15 +40,17 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage"
-        :page-sizes="[100, 200, 300, 400]"
-        layout="total, prev, pager, next"
-        :total="400">
+        :page-sizes="[20, 50, 100, 500]"
+        layout="total,sizes, prev, pager, next"
+        :total="paginationPage.total">
       </el-pagination>
     </div>
   </section>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'IndexPage',
   data() {
@@ -56,24 +58,44 @@ export default {
       activeIndex: "1",
       loading: false,
       currentPage: 1,
-      tableData: []
+      tableData: [],
+      // 分页参数
+      paginationPage: {
+        size: 20,
+        page: 1,
+        total: null
+      }
     }
   },
   methods: {
+    moment,
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
+      this.paginationPage.size = val
+      this.getList()
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+      this.paginationPage.page = val
+      this.getList()
+    },
+    async getList() {
+      let data = {
+        ...this.paginationPage
+      }
+      const result = await this.$axios.$get("/v1/admin/article", {
+        params: data
+      })
+      console.log(result)
+      this.tableData = result.data.result
+      this.paginationPage.total = result.data.total
     }
   },
-  async mounted() {
-    const result = await this.$axios.$get("/v1/admin/article")
-    console.log(result)
-    this.tableData = result.data
+  mounted() {
+    this.getList()
   },
   // async asyncData({$axios}) {
   //   let data = await this.$axios.$get("/v1/admin/article")

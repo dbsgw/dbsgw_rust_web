@@ -89,7 +89,7 @@ export default {
     },
     // 退出登录  清楚 token 和 info  跳转到首页
     handelLgout() {
-      // localStorage.removeItem("token")
+      localStorage.removeItem("token")
       // localStorage.clear()
       this.$store.commit("CLEAR")
       this.$router.push({

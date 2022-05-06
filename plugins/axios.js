@@ -1,12 +1,16 @@
-import { Message ,Loading} from 'element-ui'
-export default function ({ store, redirect, app: { $axios } }) {
+import {Message, Loading} from 'element-ui'
+
+export default function ({store, redirect, app: {$axios}}) {
   // 后端接口地址
   $axios.defaults.baseURL = process.env.NODE_ENV == "development" ? "/api" : "https://aabbcc.com/api"
 
   // Request拦截器：设置Token
   $axios.onRequest((config) => {
     // 使用Vuex存储Token，并做持久化处理
-    config.headers['Authorization'] = localStorage.getItem("token")
+    var token = localStorage.getItem("token")
+    if (token) {
+      config.headers['Authorization'] = token
+    }
   })
   // Error拦截器：出现错误的时候被调用，根据状态码做对应判断并显示全局Message
   $axios.onError((error) => {
