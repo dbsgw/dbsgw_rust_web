@@ -6,7 +6,7 @@
       </el-form-item>
 
       <el-form-item label="内容">
-        <editor-vue-mavon-editor @change="changes" ref="editor"></editor-vue-mavon-editor>
+        <editor-vue-mavon-editor  @change="changes" ref="editor"></editor-vue-mavon-editor>
       </el-form-item>
 
       <el-form-item>

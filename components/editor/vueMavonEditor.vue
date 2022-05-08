@@ -2,7 +2,9 @@
   <div>
     <div class="mavonEditor">
       <no-ssr>
-        <mavon-editor style="min-height: 500px" @change="changes" @save="save" :toolbars="markdownOption" v-model="handbook"/>
+        <mavon-editor :subfield="subfield" placeholder="Rust中文网" :style="minHeight" @change="changes"
+                      @save="save"
+                      :toolbars="markdownOption" v-model="handbook"/>
       </no-ssr>
     </div>
   </div>
@@ -10,6 +12,16 @@
 <script>
 export default {
   name: "editor",
+  props: {
+    subfield: {
+      type: Boolean,
+      default: true
+    },
+    minHeight: {
+      type: String,
+      default: "min-height: 500px"
+    }
+  },
   data() {
     return {
       markdownOption: {
