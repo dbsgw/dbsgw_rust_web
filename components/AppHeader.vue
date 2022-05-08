@@ -40,7 +40,7 @@
 
         <el-dropdown v-show="isLogin" :hide-on-click="false">
           <span class="el-dropdown-link">
-          {{ info.nick_name || ""}}<rust_-icon type="rust_xiala"></rust_-icon>
+          {{ info.nick_name || "" }}<rust_-icon type="rust_xiala"></rust_-icon>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><a @click="handelUserInfo(1)">个人中心</a></el-dropdown-item>
@@ -77,7 +77,7 @@ export default {
     },
   },
   methods: {
-    handelarticles(){
+    handelarticles() {
       this.$router.push({
         "name": "articles-new",
       })
@@ -89,13 +89,14 @@ export default {
     },
     // 退出登录  清楚 token 和 info  跳转到首页
     handelLgout() {
-      localStorage.removeItem("token")
-      // localStorage.clear()
-      this.$store.commit("CLEAR")
-      this.$router.push({
-        "name": "index"
+      this.$axios.$get("/v1/user/logout").then(x => {
+        localStorage.removeItem("token")
+        // localStorage.clear()
+        this.$store.commit("CLEAR")
+        this.$router.push({
+          "name": "index"
+        })
       })
-
     },
     handelLogin() {
       this.$router.push({

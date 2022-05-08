@@ -21,7 +21,9 @@
                   {{ scope.row.article_title }}
                 </el-col>
                 <el-col :span="7">
-                  454
+<!--                  454-->
+
+
                 </el-col>
                 <el-col :span="2">
                   {{ scope.row.user_name || "无" }}

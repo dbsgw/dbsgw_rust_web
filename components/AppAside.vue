@@ -9,9 +9,7 @@
         </p>
       </div>
       <div class="content">
-        Powered by dbsgw(Golang + MySQL)©2013-2022 Ru.com Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022 Rust.com
-        Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022 Rustst.com Rust语言中文©2013-2022 Rust.com Rust语言中文©2013-2022
-        Rust.com Rust语言中文©2013-2022 Rust.com Rust语言中文
+        Rust语言中文网，中国 Rust 社区，致力于构建完善的 Rust 中文社区，Rust语言爱好者的学习家园。
       </div>
     </div>
 

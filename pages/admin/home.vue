@@ -9,7 +9,7 @@
           <el-form-item label="昵称" prop="nick_name">
             <el-input v-model="form.nick_name"></el-input>
           </el-form-item>
-          <el-form-item label="手机号">
+          <el-form-item label="手机号" prop="mobile">
             <el-input v-model="form.mobile"></el-input>
           </el-form-item>
           <el-form-item label="第三方帐号绑定">
@@ -92,7 +92,12 @@ export default {
       rules: {
         nick_name: [
           {required: true, message: '请输入个人昵称', trigger: 'blur'},
-          {min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur'}
+          {min: 2, max: 32, message: '长度在 2 到 32 个字符', trigger: 'blur'}
+        ],
+        mobile: [
+          {required: true, message: '请输入个人手机号', trigger: 'blur'},
+          {pattern: /^1[3|5|7|8|9]\d{9}$/, message: '请输入正确的号码格式', trigger: ['blur', 'change']},
+          {min: 9, max: 16, message: '长度在 9 到 16 个字符', trigger: 'blur'}
         ],
       }
     };
@@ -119,7 +124,7 @@ export default {
       console.log(index, row)
     },
     async getArticleAll() {
-      const result = await this.$axios.$get("/v1/admin/article")
+      const result = await this.$axios.$get("/v1/user/article")
       if (result.status !== 200) {
         this.$message.error(result.msg)
       } else {
