@@ -20,7 +20,7 @@ export function RustGitHup() {
     ClientID = "Iv1.dc98f2add2e3f1cc"
     RedirectUrl = "http://127.0.0.1:2000/user/githup"
   } else {
-    ClientID = "cd1e469a5d766eebc622efe9c9e8331be9924211bfd7dcf8fe9f64e7064cb1ab"
+    ClientID = "Iv1.15a5fc34a11b4e70"
     RedirectUrl = "https://rust.nuzn.cn/user/githup"
   }
 
