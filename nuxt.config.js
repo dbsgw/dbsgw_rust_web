@@ -30,7 +30,6 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'mavon-editor/dist/css/index.css',
-    'highlight.js/styles/googlecode.css',
     './assets/css/index.scss',
   ],
   styleResources: {
