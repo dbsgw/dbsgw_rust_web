@@ -1,4 +1,4 @@
-import {Message, Loading} from 'element-ui'
+import {Message, Loading, MessageBox} from 'element-ui'
 
 export default function ({store, redirect, app: {$axios}}) {
   // 后端接口地址
@@ -21,8 +21,16 @@ export default function ({store, redirect, app: {$axios}}) {
         break;
       // 未登录
       case 401:
-        Message.error("Token过期")
-        localStorage.clear();
+        MessageBox.confirm("系统检测到您的账号长时间未操作或账号在其他设备登录, 是否重新登录?", '警告', {
+          confirmButtonText: '去登录',
+          cancelButtonText: '取消',
+          type: 'error'
+        }).then(() => {
+          store.commit("CLEAR")
+          localStorage.removeItem("token")
+          window.location = window.location.origin
+        }).catch(() => {
+        })
         break;
       case 403:
         Message.error('拒绝访问')
