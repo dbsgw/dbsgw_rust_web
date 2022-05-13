@@ -179,10 +179,14 @@ export default {
   //   // store.dispatch('article/updateArticleViewCount', { id: params.id })
   //   // return store.dispatch('article/getArticleDetail', params.id)
   // },
+  async asyncData({app,params}) {
+    const result = await app.$axios.$get(`http://127.0.0.1:3000/v1/user/article/${params.id}`)
+    return { articleObject: result.data }
+  },
   async created() {
     this.articleID = this.$route.params.id
-    const result = await this.$axios.$get(`/v1/admin/article/${this.$route.params.id}`)
-    this.articleObject = result.data
+    // const result = await this.$axios.$get(`/v1/admin/article/${this.$route.params.id}`)
+    // this.articleObject = result.data
 
     const results = await this.$axios.$get(`/v1/comment?articleID=${this.articleID}`)
     this.articleCommentObject = results.data

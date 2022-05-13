@@ -86,7 +86,7 @@ export default {
     },
     '/wp-content': {
       // target: 'https://www.xuanmo.xin'
-      target: 'http://localhost:5100'
+      target: 'http://127.0.0.1:3000'
     }
   },
 }

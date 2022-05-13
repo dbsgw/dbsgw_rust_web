@@ -88,7 +88,7 @@ export default {
       let data = {
         ...this.paginationPage
       }
-      const result = await this.$axios.$get("/v1/admin/article", {
+      const result = await this.$axios.$get("/v1/user/article", {
         params: data
       })
       console.log(result)
@@ -99,13 +99,12 @@ export default {
   mounted() {
     this.getList()
   },
-  // async asyncData({$axios}) {
-  //   let data = await this.$axios.$get("/v1/admin/article")
-  //   if (data.code == 200) {
-  //     return data
-  //   } else {
-  //     return {}
-  //   }
+  // async asyncData({app}) {
+  //   const result = await app.$axios.$get(`http://127.0.0.1:3000/v1/admin/article`,{
+  //     params:fa
+  //   })
+  //   return { articleObject: result.data }
+  //
   // }
 }
 </script>
